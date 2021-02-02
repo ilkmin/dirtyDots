@@ -38,7 +38,7 @@ zinit wait lucid light-mode for \
   blockf atpull'zinit creinstall -q .' \
       zsh-users/zsh-completions
 
-# LS_COLOURS
+# LS_COLOURS (will use 'exa')
 #zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
 #    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
 #    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
@@ -79,8 +79,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Environment variables
 export EDITOR="micro"
+export DOTBARE_DIFF_PAGES="delta --diff-so-fancy --line-numbers"
 
-# Compilations:
+# Completions:
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
