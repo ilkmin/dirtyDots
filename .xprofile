@@ -1,0 +1,12 @@
+# Autostart on Xorg startup 
+
+# manages screen brightness
+nitrogen --restore &           # wallpapers
+picom -f &                     # compositor (blur, fade, etc.)
+$HOME/.screenlayout/display.sh # force screen resolution
+
+# Automounting USB flash drives
+if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS";
+ then
+ eval "$(dbus-launch --sh-syntax --exit-with-session)"
+fi

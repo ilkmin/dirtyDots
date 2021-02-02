@@ -1,0 +1,9 @@
+$include /etc/inputrc
+
+### Terminal settings
+
+set completion-ignore-case on # case insensitivity
+"\C-h": backward-kill-word    # ctrl-Backspace
+"\e[3;5~": kill-word          # ctrl-DEL
+
+### End term settings
