@@ -287,6 +287,35 @@ globalkeys = gears.table.join(
 	awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
 	              {description = "open a browser", group = "WWW"}),
 
+    -- Volume control
+    awful.key({       }, "XF86AudioRaiseVolume", function () 
+                                                   awful.spawn("amixer set Master 5%+") 
+                                                 end,
+    	              {description = "raise volume by 5%", group = "Volume"}),
+    awful.key({       }, "XF86AudioLowerVolume", function () 
+                                                   awful.spawn("amixer set Master 5%-") 
+                                                 end,
+        	          {description = "lower volume by 5%", group = "Volume"}),
+   awful.key({ modkey }, "XF86AudioRaiseVolume", function () 
+                                                   awful.spawn("amixer set Master toggle") 
+                                                 end,
+           	          {description = "mute/unmute sound", group = "Volume"}),
+   awful.key({ modkey }, "XF86AudioLowerVolume", function () 
+                                                   awful.spawn("amixer set Capture toggle") 
+                                                 end,
+                      {description = "mute/unmute mic", group = "Volume"}),
+
+   -- Brightness control 
+   awful.key({ }, "XF86MonBrightnessUp",   function () 
+                                             awful.spawn("brillo -A 10") 
+                                           end,
+       	              {description = "increase brightness by 5%", group = "Monitor brightness"}),
+   awful.key({ }, "XF86MonBrightnessDown", function () 
+                                             awful.spawn("brillo -U 10") 
+                                           end,
+          	          {description = "decrease brightness by 5%", group = "Monitor brightness"}),
+    
+
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
@@ -326,7 +355,7 @@ globalkeys = gears.table.join(
 
     -- Prompt
     awful.key({ modkey }, "space", function () awful.spawn(rofi) end,
-              {description = "run rofi", group = "launcher"}),
+              {description = "run rofi menu", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
