@@ -52,6 +52,10 @@ terminal   = os.getenv("TERM") or "alacritty" or "xterm"
 editor     = os.getenv("EDITOR") or "micro" or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
+betterlockscreen = "betterlockscreen -l -t \"It can only show time.\" "
+browser          = os.getenv("BROWSER") or "flatpak run com.brave.Browser"
+rofi             = "rofi -show run"
+
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
@@ -275,9 +279,13 @@ globalkeys = gears.table.join(
 
 	-- Lock screen
 	awful.key({ modkey, "Control" }, "/", function () 
-                                            awful.util.spawn("betterlockscreen -l -t \"It can only show time.\" ") 
+                                            awful.spawn(betterlockscreen) 
 										  end,
 	              {description = "lock the screen", group = "lock"}),
+
+	-- Browser
+	awful.key({ modkey,           }, "b", function () awful.spawn(browser) end,
+	              {description = "open a browser", group = "WWW"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
@@ -317,10 +325,8 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey }, "space", function () 
-                                     awful.screen.focused().mypromptbox:run() 
-                                   end,
-              {description = "run prompt", group = "launcher"}),
+    awful.key({ modkey }, "space", function () awful.spawn(rofi) end,
+              {description = "run rofi", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
@@ -334,7 +340,7 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "TODO: show dmenu-like prompt", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
@@ -479,7 +485,6 @@ awful.rules.rules = {
           "Kruler",
           "MessageWin",  -- kalarm.
           "Sxiv",
-          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
           "xtightvncviewer"},

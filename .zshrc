@@ -83,9 +83,14 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 #setopt MENU_COMPLETE # Don't wait second TAB
 
 # Environment variables
+export BROWSER="flatpak run com.brave.Browser"
 export TERM="alacritty"
 export EDITOR="micro"
 export DOTBARE_DIFF_PAGES="delta --diff-so-fancy --line-numbers"
+
+# Simple aliases
+alias ll="exa -lah"
+alias lll="exa -lah --tree"
 
 # Completions:
 autoload -Uz compinit
