@@ -2,8 +2,9 @@
 ## Autostart on Xorg startup ##
 ###############################
 
-picom -f &                     # compositor (blur, fade, etc.)
-$HOME/.screenlayout/display.sh # force screen resolution
+brillo -S 50                    # set brightness to 50%
+picom -f &                      # compositor (blur, fade, etc.)
+$HOME/.screenlayout/display.sh  # force screen resolution
 
 # Random wallpapers
 nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers

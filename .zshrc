@@ -56,6 +56,11 @@ zinit light laggardkernel/zsh-thefuck
 ### Personal configuration:
 
 # History
+if [[ ! -f $HOME/.cache/zsh/history ]]; then
+    mkdir -p $HOME/.cache/zsh
+    touch $HOME/.cache/zsh/history
+fi
+
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=~/.cache/zsh/history
@@ -78,6 +83,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 #setopt MENU_COMPLETE # Don't wait second TAB
 
 # Environment variables
+export TERM="alacritty"
 export EDITOR="micro"
 export DOTBARE_DIFF_PAGES="delta --diff-so-fancy --line-numbers"
 
