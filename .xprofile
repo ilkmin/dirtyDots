@@ -1,9 +1,12 @@
-# Autostart on Xorg startup 
+###############################
+## Autostart on Xorg startup ##
+###############################
 
-# manages screen brightness
-nitrogen --restore &           # wallpapers
 picom -f &                     # compositor (blur, fade, etc.)
 $HOME/.screenlayout/display.sh # force screen resolution
+
+# Random wallpapers
+nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers
 
 # Automounting USB flash drives
 if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS";
