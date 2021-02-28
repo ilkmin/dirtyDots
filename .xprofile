@@ -6,12 +6,21 @@ brillo -S 50                    # set brightness to 50%
 picom -f &                      # compositor (blur, fade, etc.)
 $HOME/.screenlayout/display.sh  # force screen resolution
 lxqt-policykit-agent &          # handles polkit graphically
+nm-applet &                     # Wi-Fi tray
 
-# Random wallpapers
-nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers
+### Set layouts
+setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 
-# Automounting USB flash drives
+### Random wallpapers
+feh --bg-fill --randomize ~/Pictures/Wallpapers/* &
+
+### Automount
+udiskie -A -s -F &  # -A: --no-automount
+                    # -s: --smart-tray
+                    # -F: --no-file-manager
+
+### Required for flatpak (and automounting)
 if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS";
- then
- eval "$(dbus-launch --sh-syntax --exit-with-session)"
+    then
+    eval "$(dbus-launch --sh-syntax --exit-with-session)"
 fi
