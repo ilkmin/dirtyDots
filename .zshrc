@@ -77,6 +77,7 @@ bindkey '^H'      backward-kill-word
 bindkey '^[[3;5~' kill-word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
+bindkey '^[[3~'   delete-char
 
 # Case-insensitivity 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -86,6 +87,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 export TERM="alacritty"
 export EDITOR="micro"
 export DOTBARE_DIFF_PAGES="delta --diff-so-fancy --line-numbers"
+export MYVIMRC="$HOME/.config/nvim/init.vim"
 
 # Aliases
 source "$HOME/.config/zsh/aliases.zsh"

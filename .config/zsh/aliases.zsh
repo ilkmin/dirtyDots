@@ -50,6 +50,8 @@ alias xr="sudo xbps-remove -R"
 # Ignored aliases
 ialias l="exa -lah --icons"
 ialias ll="exa -lah --icons --tree"
+ialias v="nvim"
+ialias vim="nvim"
 
 # Blank aliases, without trailing whitespace
 #balias clh='curl localhost:'
