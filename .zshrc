@@ -84,7 +84,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 #setopt MENU_COMPLETE # Don't wait second TAB
 
 # Environment variables
-export TERM="alacritty"
+#export TERM="alacritty"
 export EDITOR="micro"
 export DOTBARE_DIFF_PAGES="delta --diff-so-fancy --line-numbers"
 export MYVIMRC="$HOME/.config/nvim/init.vim"
